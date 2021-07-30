@@ -1,0 +1,1 @@
+api of astapy ### https://docs.datastax.com/en/astra/docs/getting-started-with-datastax-astra.html
