@@ -13,7 +13,7 @@ class CassandraDatabaseManager:
     CassandraDatabaseManager is high level api.
     """
 
-    def __init__(self):
+    def __init__(self,cassandra_config_path:str):
         """
         It will read file cassandra_db.yaml to get credential of cassandra database
         ===========================================================================
@@ -24,7 +24,7 @@ class CassandraDatabaseManager:
           ASTRA_DB_KEYSPACE: <ASTRA_DB_KEYSPACE>
           ASTRA_DB_APPLICATION_TOKEN: <ASTRA_DB_APPLICATION_TOKEN>
         """
-        with open("cassandra_db.yaml", 'r') as config_file:
+        with open(cassandra_config_path, 'r') as config_file:
             cassandra_config = yaml.safe_load(config_file)
         credential = cassandra_config['cassandra_database']
         self._astra_collection = create_client(astra_database_id=credential['ASTRA_DB_ID'],
